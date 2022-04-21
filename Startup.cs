@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -32,9 +33,24 @@ namespace MyLifeSpot
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
+                    var html = await File.ReadAllTextAsync(viewPath);
+                    await context.Response.WriteAsync(html);
                 });
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/Static/CSS/index.css", async context =>
+                {
+                var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Static/CSS", "index.css");
+                var html = await File.ReadAllTextAsync(viewPath);
+                await context.Response.WriteAsync(html);
+
+                });
+            });
+
+
         }
     }
 }
