@@ -4,21 +4,30 @@
     <meta charset="utf-8">
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
+    <script src="../Static/JS/index.js"></script>
+    <script>
+     // checkAge();
+     setTimeout(()=> alert("Нравится LifeSpot? " + '\n' +  "Подпишитесь на наш Instagram @lifespot999!" ),60000)
+     sessionHandler();
+     sessionLog();
+
+       const inputParseFunction = function(){
+       return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
+    </script>
+
 </head>
 <body>
     <header id="header-index">
-        <div class="block">
-            <h1>LifeSpot - прямые трансляции с улиц</h1>
-            <p>Покажем что проиходит прямо сейчас</p>
-            <!--<a href="https://youtu.be/AdUw5RdyZxI"><button>Нью-йорк</button></a>
-            <a href="https://www.youtube.com/watch?v=wCcMcaiRbhM"><button>Санкт-петербург</button></a>
-            <a href="https://www.youtube.com/watch?v=JplMzss6_YE&ab_channel=WokiliWanders"><button>Лондон</button></a>-->
-        </div>
+      <h1>LifeSpot - прямые трансляции с улиц</h1>
+        <p>Покажем что проиходит прямо сейчас</p>
         <div class="box-search">
             <div>
-                <input class="search" type="search" name="q" placeholder="Поиск по сайту" />
+                <input type="text" oninput="
+                // Вызов (функция в аргумент передаётся без круглых скобок)
+                contentFilter();
+                 " size=50%>
             </div>
-
         </div>
     </header>
     <div class="videos">
@@ -38,18 +47,8 @@
             <iframe width="480" height="320" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    <aside id="sidebar">
-        <div class="navbar">
-            <a href="/"><p>Все трансляции</p></a>
-            <a href="/"><p>О проекте</p></a>
-        </div>
-    </aside>
-
-    <footer>
-        <p>LifeSpot - все права защищены</p>
-        <p>Связаться с нами: contact@lifespot.ru</p>
-    </footer>
-
+    <!--SIDEBAR-->
+    <!--FOOTER-->
 </body>
 
 </html>
